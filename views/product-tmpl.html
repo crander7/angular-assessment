@@ -3,15 +3,15 @@
         <a class="product-grid__product" >
             <img class="product-grid__img"   sizes="(min-width: 960px) 33vw, (min-width: 769px) 50vw, 100vw" alt="">
         </a>
-        <a class="product-grid__product" ui-sref="details({id: '{{merch.id}}'})" >
-            <img src="{{ merch.image }}" alt="" />
+        <a class="product-grid__product show" ng-class="{show: cssToggle}">
+            <img ng-click="cssToggle = !cssToggle" src="{{ merch.image }}" alt="" />
         </a>
 
         <!--Product Meta-->
         <div class="product-grid__meta">
             <!--Title click Should redirect to the product-details section. remember to pass along the product id so you can make an api call
         to get the specific product details-->
-            <h3 class="product-grid__name"><a>{{ merch.title }}</a></h3>
+            <h3 class="product-grid__name"><a ui-sref="details({id: '{{merch.id}}'})">{{ merch.title }}</a></h3>
 
             <!--Product Description-->
             <h4 class="product-grid__sub">{{ merch.desc }}</h4>
